@@ -1,0 +1,33 @@
+package com.jokenpo.project.services.enums;
+
+public enum Types {
+
+    PEDRA(0, "Pedra"),
+    PAPEL(1, "Pedra"),
+    TESOURA(2, "Papel");
+
+    private Integer id;
+    private final String name;
+
+    Types(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public static Types getTypeFromId(Integer id) {
+        for (Types type : Types.values()) {
+            if (type.getId().equals(id)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("Não existe um id relacionado aos parâmetros passados.");
+    }
+}

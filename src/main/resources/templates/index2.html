@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Jokenpo</title>
+</head>
+<body>
+<div th:if="${round}">
+    Partida <span th:text="${round}" />
+</div>
+<div th:if="${userName}">
+    Bem vindo <span th:text="${userName}" />!
+</div>
+<div th:if="${noChoose}">
+    Escolha uma das opções
+</div>
+<div th:if="${userChoice}">
+    Você escolheu: <span th:text="${userChoice}" /> <br />
+    O computador escolheu: <span th:text="${computerChoice}" /> <br />
+</div>
+<div th:if="${usuario}">
+    Você venceu!
+</div>
+<div th:if="${computador}">
+    Computador venceu!
+</div>
+<div th:if="${empate}">
+    Empatou!
+</div>
+Escolha seu próximo movimento:
+<form method="POST" action="/round">
+    <input type="radio" name="userMove" value="PEDRA">Pedra</input>
+    <input type="radio" name="userMove" value="TESOURA">Tesoura </input>
+    <input type="radio" name="userMove" value="PAPEL">Papel</input>
+    <input type="submit" />
+</form>
+</body>
+</html>
